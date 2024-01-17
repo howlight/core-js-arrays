@@ -169,8 +169,12 @@ function getAverage(arr) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const strLength = arr[0].length;
+  // every() проверяет, удовлетворяют ли все элементы массива условию,
+  // заданному в передаваемой функции. возвращает true \ false
+  // метод возвращает true при любом условии для пустого массива.
+  return arr.every((el) => el.length === strLength);
 }
 
 /**
@@ -184,8 +188,11 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  // some() проверяет, удовлетворяет ли какой-либо элемент массива условию,
+  // заданному в передаваемой функции. возвращает true \ false
+  // метод возвращает false при любом условии для пустого массива.
+  return arr.some((el, index) => el === index);
 }
 
 /**
@@ -199,8 +206,11 @@ function isValueEqualsIndex(/* arr */) {
  *    insertItem([ 1, 3, 4, 5 ], 2, 1)  => [ 1, 2, 3, 4, 5 ]
  *    insertItem([ 1, 'b', 'c'], 'x', 0) => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(/* arr, item, index */) {
-  throw new Error('Not implemented');
+function insertItem(arr, item, index) {
+  // splice: начиная с индекса index
+  // удалить 0 элементов
+  // вставить item
+  return arr.splice(index, 0, item);
 }
 
 /**
@@ -214,8 +224,10 @@ function insertItem(/* arr, item, index */) {
  *    getHead([ 'a', 'b', 'c', 'd'], 3) => [ 'a', 'b', 'c' ]
  *    getHead([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  // slice: возвращает новый массив,
+  // с элементами от индекса start до end (не включая end)
+  return arr.slice(0, n);
 }
 
 /**
@@ -229,8 +241,8 @@ function getHead(/* arr, n */) {
  *    getTail([ 'a', 'b', 'c', 'd'], 3) => [ 'b', 'c', 'd' ]
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  return n === 0 ? [] : arr.slice(-n);
 }
 
 /**
@@ -245,8 +257,10 @@ function getTail(/* arr, n */) {
  *    doubleArray([0, 1, 2, 3, 4, 5]) => [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5]
  *    doubleArray([]) => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  // concat(): возвращает новый массив, состоящий из
+  // arr1 + arr2\values
+  return arr.concat(arr);
 }
 
 /**
@@ -260,8 +274,10 @@ function doubleArray(/* arr */) {
  *    toStringList([1, 2, 3, 4, 5]) => '1,2,3,4,5'
  *    toStringList(['rock', 'paper', 'scissors']) => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  // join(separator): объединяет все элементы массива
+  // (или массивоподобного объекта) в строку.
+  return arr.join();
 }
 
 /**
@@ -276,8 +292,12 @@ function toStringList(/* arr */) {
  *   distinct([ 1, 1, 2, 2, 3, 3, 4, 4]) => [ 1, 2, 3, 4]
  *   distinct([]) => []
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  // Array.from() создаёт новый экземпляр Array
+  // из массивоподобного или итерируемого объекта.
+  // Объект Set особый вид коллекции: «множество» значений (без ключей),
+  // где каждое значение может появляться только один раз.
+  return Array.from(new Set(arr));
 }
 
 /**
@@ -308,8 +328,9 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
-  throw new Error('Not implemented');
+function flattenArray(nestedArray) {
+  // flat() создаёт новый плоский массив из многомерного массива.
+  return nestedArray.flat(Infinity);
 }
 
 /**
@@ -325,8 +346,8 @@ function flattenArray(/* nestedArray */) {
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.flatMap(childrenSelector);
 }
 
 /**
