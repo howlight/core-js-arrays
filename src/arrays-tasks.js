@@ -528,10 +528,7 @@ function getHexRGBValues(/* arr */) {
  *   getMaxItems([ 10, 10, 10, 10 ], 3) => [ 10, 10, 10 ]
  */
 function getMaxItems(arr, n) {
-  return arr
-    .slice()
-    .sort((a, b) => b - a)
-    .slice(0, n);
+  return arr.sort((a, b) => b - a).slice(0, n);
 }
 
 /**
